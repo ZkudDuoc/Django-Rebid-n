@@ -1,0 +1,23 @@
+<!-- listar_eliminar_productos.html -->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Listar y Eliminar Productos</title>
+</head>
+<body>
+    <h2>Listado de Productos</h2>
+    <ul>
+        {% for producto in productos %}
+        <li>
+            <strong>{{ producto.nombre }}</strong> - {{ producto.descripcion }} - Precio: {{ producto.precio }} - Stock: {{ producto.stock }}
+            <form method="POST" action="{% url 'eliminar_producto' producto.id %}">
+                {% csrf_token %}
+                <button type="submit">Eliminar</button>
+            </form>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

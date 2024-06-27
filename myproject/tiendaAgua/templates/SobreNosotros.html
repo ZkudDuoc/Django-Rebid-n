@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Tienda Rebidon</title>
+    <!--Iconos-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="img/droplet.svg" />
+    <!-- Bootstrap icons-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="css/styles.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+        integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+        integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
+</head>
+
+<body>
+    <!-- Barra de navegacion-->
+    <div class=barra-navegacion>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container px-4 px-lg-5">
+                <img src="img/droplet.svg" alt="Logo" width="30" height="24" class="d-inline-block align-text-top me-1">
+                <strong><a class="navbar-brand" href="Inicio.html">REBIDON</a> </strong>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation"><span
+                        class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                        <li class="nav-item"><a class="nav-link active" aria-current="page"
+                                href="Inicio.html">Inicio</a>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="Contactanos.html">Contacto</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">Mas</a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="index.html">Todos los productos</a></li>
+                                <li>
+                                    <hr class="dropdown-divider" />
+                                </li>
+                                <li><a class="dropdown-item" id="cursor" data-bs-toggle="modal"
+                                        data-bs-target="#staticBackdrop">Entrar</a></li>
+                                <li><a class="dropdown-item" id="cursor" data-bs-toggle="modal"
+                                        data-bs-target="#Register">Registrarse</a></li>
+                                <li><a class="dropdown-item" href="SobreNosotros.html">Sobre Nosotros</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <form class="d-flex">
+                        <button class="btn btn-outline-dark" type="submit">
+                            <i class="bi-cart-fill me-1"></i>
+                            Carro
+                            <span class="badge bg-dark text-white ms-1 rounded-pill products-count">0</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <!--modal registro/login/recuperacion-->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5 d-flex text-center" id="staticBackdropLabel">Iniciar Sesión</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form onsubmit="return validarInicioSesion();">
+                        <div class="mb-3">
+                            <label for="inputcorreo1" class="form-label fs-6 fw-bold">Ingresa tu correo</label>
+                            <input type="email" id="inputcorreo1" class="form-control inputcorreo"
+                                placeholder="Ejemplo@email.com" required>
+                            <!-- Mensaje de error para el correo electrónico -->
+                            <div id="errorCorreo" class="invalid-feedback">Por favor ingresa un correo electrónico
+                                válido.
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="inputPassword" class="form-label fs-6 fw-bold">Ingresa tu contraseña</label>
+                            <input type="password" id="inputPassword" class="form-control inputcontraseña"
+                                aria-describedby="passwordHelpInline" placeholder="1234****" required>
+                            <!-- Mensaje de error para la contraseña -->
+                            <div id="errorContraseña" class="invalid-feedback">La contraseña debe tener al menos 8
+                                caracteres.</div>
+                        </div>
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                            <label class="form-check-label" for="flexCheckDefault">Recuérdame</label>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <p class="mt-4">
+                                <a data-bs-toggle="modal" data-bs-target="#contraseña" id="cursor" class="fw-bold">¿Haz
+                                    olvidado tu contraseña?</a>
+                            </p>
+                            <div class="ml-auto">
+                                <button type="submit" class="btn btn-outline-success mt-2">Entrar</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Registrarse-->
+    <div class="modal fade" id="Register" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header text-center">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Registrarse</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form onsubmit="return validarRegistro();">
+                        <div class="mb-3">
+                            <label for="inputnombre" class="form-label fs-6 fw-bold">Ingresa tu nombre</label>
+                            <input type="text" id="inputnombre" class="form-control inputnombre"
+                                placeholder="Ej: Juanito Perez" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="inputcorreo2" class="form-label fs-6 fw-bold">Ingresa tu correo</label>
+                            <input type="email" id="inputcorreo2" class="form-control inputcorreo"
+                                placeholder="Usuario@email.com" required>
+                            <div id="errorCorreo" class="invalid-feedback">Por favor ingresa un correo electrónico
+                                válido.
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label fs-6 fw-bold">Ingresa tu contraseña
+                                <img src="assets/key-fill.svg" height="16px" width="16px"></label>
+                            <input type="password" id="password" class="form-control inputcontraseña"
+                                placeholder="4-8 Caracteres" required>
+                            <div id="errorContraseñaRegistro" class="invalid-feedback">La contraseña debe tener al menos
+                                8
+                                caracteres.</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="password2" class="form-label fs-6 fw-bold">Repite tu contraseña
+                                <img src="assets/key-fill.svg" height="16px" width="16px"></label>
+                            <input type="password" id="password2" class="form-control inputcontraseña"
+                                placeholder="Repite tu contraseña" required>
+                            <div id="errorContraseñaRepetida" class="invalid-feedback">Las contraseñas no coinciden.
+                            </div>
+                        </div>
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" type="checkbox" value="" id="show-password">
+                            <label class="form-check-label" for="show-password">Mostrar contraseña</label>
+                        </div>
+                        <div class="mb-3">
+                            <p class="text-primary">
+                                ¿Ya tienes cuenta? <a href="#" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+                                    class="fw-bold">Inicia sesión aquí</a>
+                            </p>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <img src="assets/facebook.svg" height="30px" width="30px" class="mx-1">
+                                <img src="assets/google.svg" height="28px" width="28px" class="mx-1">
+                                <img src="assets/twitter-x.svg" height="28px" width="28px" class="mx-1">
+                            </div>
+                            <div class="ml-auto">
+                                <button type="submit" class="btn btn-outline-success">Registrarse</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Perdida de contraseña-->
+    <div class="modal fade" id="contraseña" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5 d-flex text-center" id="staticBackdropLabel">Recuperación</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form onsubmit="return validarRecuperacion();">
+                        <div class="mb-3">
+                            <label for="inputcorreo3" class="form-label fs-6 fw-bold">Ingresa tu correo</label>
+                            <input type="email" id="inputcorreo3" class="form-control inputcorreo"
+                                placeholder="Ejemplo@email.com" required>
+                            <!-- Mensaje de error para el correo electrónico -->
+                            <div id="errorCorreoRecuperacion" class="invalid-feedback">Por favor ingresa un correo
+                                electrónico válido.</div>
+                        </div>
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" required>
+                            <label class="form-check-label" for="flexCheckDefault">
+                                Acepto los términos y condiciones
+                            </label>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <p class="mt-0">
+                                Si ya tienes cuenta <a data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+                                    id="cursor" class="fw-bold">Inicia sesión aquí</a>
+                            </p>
+                            <button type="submit" class="btn btn-outline-success mt-2">Enviar correo de
+                                recuperación</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Modal login/Register-->
+    <!--Modal login/Register-->
+    <!-- Header-->
+    <header class="">
+        <header class="bg-dark py-1">
+            <div class="container px-1">
+                <div class="row gx-1 justify-content-center">
+                    <div class="col-lg-10">
+                        <div class="text-center my-1">
+                            <img src="img/Cuídate a ti mismo con nuestra Agua..png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Header-->
+
+        <!--Quienes somos body-->
+        <div class="container px-lg-3">
+            <div class="p-4 p-lg-5 bg-light rounded-3 text-center">
+                <div class="m-4 m-lg-5">
+                    <h1 class="display-5 fw-bold fs-1">¿Quienes somos?</h1>
+                    <p class="fs-5 text-black">
+                        <strong>REBIDÓN</strong> es una firma con un cuarto de siglo de experiencia proporcionando una
+                        variedad de respuestas para el sector de los contenedores industriales, accesorios y
+                        herramientas.
+                    </p>
+                    <p class="fs-5 text-black">Nos hemos especializado en suministrar soluciones de primera categoría a
+                        nuestros clientes. Dentro de nuestra gama de productos, se incluyen recipientes IBC, una amplia
+                        selección de botellas, bidones, tambores y más.</p>
+
+                    <p class="fs-5 text-black">Nuestro enfoque se basa en la colaboración y la mejora continua.
+                        Mantenemos una comunicación fluida con nuestros clientes y proveedores para asegurar la
+                        excelencia y satisfacer las necesidades de aquellos que requieren almacenar o transportar
+                        líquidos de forma segura y fiable,
+                        siempre manteniendo un compromiso con el cuidado del medio ambiente.</p>
+                </div>
+                <p class="text-black fs-1 fw-bold mb-4"> ¿Donde nos encontramos?</p>
+                <p class="text-black w-25 d-inline-block fs-5" id="text-mapa">
+                    Nos encontramos en san juaquin, a unas cuadras del metro pedreros.
+                    Aqui es donde podras recoger tus pedidos con despacho en tienda, aparte
+                    de poder venir a consultar cualquier duda presencialmente
+                    De <strong>lunes a viernes desde las 9:30 AM - 19:30pm</strong></p>
+                <div id="map">
+                </div>
+                <a class="btn btn-primary btn-lg mt-4" href="Contactanos.html">CONTACTANOS</a>
+            </div>
+        </div>
+        </div>
+        </div>
+        <!--Quienes somos body-->
+        <!-- Footer-->
+        <footer class="py-5 bg-black">
+            <div class="container">
+                <div class="container"> <a href="Contactanos.html" class="m-0 text-white text-center" id="cont">
+                        <p>Contacto</p>
+                    </a></div>
+                <div class="container"> <a href="SobreNosotros.html" class="m-0 text-white text-center" id="nos">
+                        <p>Sobre Nosotros</p>
+                    </a></div>
+                <div class="container"> <a href="#" class="m-0 text-white text-center" id="red">
+                        <p>Redes Sociales</p>
+                    </a></div>
+
+                <section class="botones">
+                    <a href="https://www.instagram.com/duocucsanjoaquin" class="fa fa-instagram" id="ins"></a>
+                    <a href="https://web.facebook.com/DuocUC.SanJoaquin" class="fa fa-facebook" id="fa"></a>
+                    <a href="https://api.whatsapp.com/send/?phone=56936639565&text&type=phone_number&app_absent=0"
+                        class="fa fa-whatsapp" id="what"></a>
+                </section>
+                <div class="container">
+                    <p class="m-0 text-white text-center text-uppercase fs-5 fw-bold mt-5">Copyright &copy; Rebidon 2024
+                    </p>
+                </div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+        <script
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDaeWicvigtP9xPv919E-RNoxfvC-Hqik&callback=iniciarMap"></script>
+</body>
+
+</html>
