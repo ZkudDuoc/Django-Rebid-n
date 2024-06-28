@@ -11,7 +11,7 @@
     <!--Iconos-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Favicon-->
-    <link rel="icon" type="image/x-icon" href="img/droplet.svg" />
+    <link rel="icon" type="image/x-icon" href="{%static "img\droplet.svg" %}" />
     <!-- Bootstrap icons-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
     <!-- Core theme CSS (includes Bootstrap)-->
@@ -31,7 +31,7 @@
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container px-4 px-lg-5">
                 <img src="{%static "img\droplet.svg" %}" alt="Logo" width="30" height="24" class="d-inline-block align-text-top me-1">
-                <strong><a class="navbar-brand" href="index/">REBIDON</a> </strong>
+                <strong><a class="navbar-brand" href="{% url 'Inicio' %}">REBIDON</a> </strong>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation"><span
@@ -39,14 +39,14 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
                         <li class="nav-item"><a class="nav-link active" aria-current="page"
-                                href="Inicio/">Inicio</a>
+                                href="{% url 'Inicio' %}">Inicio</a>
                         </li>
-                        <li class="nav-item"><a class="nav-link" href="Contactanos/">Contacto</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'Contactanos' %}" >Contacto</a></li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button"
                                 data-bs-toggle="dropdown" aria-expanded="false">Mas</a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="Inicio/">Todos los productos</a></li>
+                                <li><a class="dropdown-item" href="{% url 'index' %}">Todos los productos</a></li>
                                 <li>
                                     <hr class="dropdown-divider" />
                                 </li>
@@ -54,7 +54,7 @@
                                         data-bs-target="#staticBackdrop">Entrar</a></li>
                                 <li><a class="dropdown-item" id="cursor" data-bs-toggle="modal"
                                         data-bs-target="#Register">Registrarse</a></li>
-                                <li><a class="dropdown-item" href="Sobrenosotros/">Sobre Nosotros</a></li>
+                                <li><a class="dropdown-item" href="{% url 'SobreNosotros' %}">Sobre Nosotros</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -182,7 +182,6 @@
             </div>
         </div>
     </div>
-
     <!--Perdida de contraseña-->
     <div class="modal fade" id="contraseña" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
         aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -221,18 +220,15 @@
             </div>
         </div>
     </div>
-
-
-
     <!--Modal login/Register-->
     <!-- Header-->
     <header class="">
         <!--CARRUSEL-->
-        <a href="Certificacion.html">
+        <a href="{% url 'Certificacion' %}">
             <div id="carouselExampleCaptions" class="carousel slide">
                 <div class="carousel-inner">
                     <div class="carousel-item active" id="carrouselitem">
-                        <img src="img/banner-aguas.png" class="d-block w-75 img-fluid mx-auto" alt="claro">
+                        <img src="{%static "img/banner-aguas.jpg" %}" class="d-block w-75 img-fluid mx-auto" alt="claro">
                     </div>
                 </div>
         </a>
@@ -253,11 +249,10 @@
                                         aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                    <h2 class="mt-3 text-center"><strong>1 Bidon de Agua</strong></h2>
+                                    <h2 class="mt-3 text-center"><strong>1 Bidon de Agua Limache</strong></h2>
                                     <p class="text-center"> "¡Agua purificada para toda tu familia, el sabor más puro y
                                         refrescante del agua limpia."</p>
-
-                                    <img src="img/1Bidon.jpg" width="300" height="600" id="imgmodal" alt="Bidon1">
+                                    <img src="{%static "img/limache_agua.jpg" %}" id="imgmodal" alt="Bidon1">
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-success">Agregar al carrito</button>
@@ -269,19 +264,18 @@
                         <!-- Product image-->
                         <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">
                             Clasico</div>
-                        <img class="card-img-top" src="img/1Bidon.jpg" width="100" height="300" alt="recarga100" />
+                        <img class="card-img-top" src="{%static "img/limache_agua.jpg" %}" width="100" height="300" alt="recarga100" />
                         <!-- Product details-->
                         <div class="card-body p-4">
                             <div class="text-center">
                                 <!-- Product name-->
-                                <h5 class="fw-bolder">1 Bidon de Agua </h5>
+                                <h5 class="fw-bolder">1 Bidon de Agua Limache</h5>
                                 <!-- Product reviews-->
                                 <div class="d-flex justify-content-center small text-warning mb-2">
                                     <div class="bi-star-fill"></div>
                                     <div class="bi-star-fill"></div>
                                     <div class="bi-star-fill"></div>
                                     <div class="bi-star-fill"></div>
-
                                 </div>
                                 <!-- Product price-->
                                 $4.500
@@ -293,9 +287,7 @@
                                     data-bs-target="#Bidon1" href="#">Vista previa</a></div>
                             <div class="text-center"><a class="btn btn-success mt-2" href="#">Añadir al carro</a></div>
                         </div>
-
                     </div>
-
                 </div>
                 <div class="col mb-5">
                     <!-- Modal(2) 2 Bidones de agua -->
@@ -316,8 +308,7 @@
                                         para el hogar, la oficina o cualquier actividad al aire libre, aseguran que
                                         siempre tengas agua a mano cuando la necesites. ¡Mantén la frescura y la
                                         comodidad a tu alcance con nuestros dos bidones de agua!"</p>
-
-                                    <img src="img/Promo2Bidones.jpeg" width="300" height="600" id="imgmodal"
+                                    <img src="{%static "img/Promo2Bidones.jpeg" %}" id="imgmodal"
                                         alt="#Bidon2">
                                 </div>
                                 <div class="modal-footer">
@@ -330,7 +321,7 @@
                         <!-- Product image-->
                         <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">
                             Oferta</div>
-                        <img class="card-img-top" src="img/Promo2Bidones.jpeg" alt="recarga100" />
+                        <img class="card-img-top" src="{%static "img/Promo2Bidones.jpeg" %}" alt="recarga100" />
                         <!-- Product details-->
                         <div class="card-body p-4">
                             <div class="text-center">
@@ -342,7 +333,6 @@
                                     <div class="bi-star-fill"></div>
                                     <div class="bi-star-fill"></div>
                                     <div class="bi-star-fill"></div>
-
                                 </div>
                                 <!-- Product price-->
                                 $8.000
@@ -354,11 +344,8 @@
                                     data-bs-target="#Bidon2" href="#">Vista previa</a></div>
                             <div class="text-center"><a class="btn btn-success mt-2" href="#">Añadir al carro</a></div>
                         </div>
-
                     </div>
-
                 </div>
-
                 <div class="col mb-5">
                     <!-- Modal(3) 1 Recarga de agua  -->
                     <div class="modal fade" id="Bidon01" data-bs-backdrop="static" data-bs-keyboard="false"
@@ -382,8 +369,7 @@
                                         dispensadores estándar de agua. Además, nuestro servicio de entrega asegura que
                                         tu suministro nunca se agote. ¡Asegura tu hidratación con nuestra recarga de
                                         agua de calidad hoy mismo!"</p>
-
-                                    <img src="img/1Bidon.jpg" width="300" height="600" id="imgmodal" alt="Bidon01">
+                                    <img src="{%static "img/img1.png" %}" width="300" height="300" id="imgmodal" alt="Bidon01">
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-success">Agregar al carrito</button>
@@ -395,7 +381,7 @@
                         <!-- Product image-->
                         <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">
                             Recarga</div>
-                        <img class="card-img-top" src="img/1Bidon.jpg" width="100" height="300" alt="recarga100" />
+                        <img class="card-img-top" src="{%static "img/img1.png" %}" width="100" height="300" alt="recarga100" />
                         <!-- Product details-->
                         <div class="card-body p-4">
                             <div class="text-center">
@@ -406,7 +392,6 @@
                                     <div class="bi-star-fill"></div>
                                     <div class="bi-star-fill"></div>
                                     <div class="bi-star-fill"></div>
-
                                 </div>
                                 <!-- Product price-->
                                 $250
@@ -418,12 +403,9 @@
                                     data-bs-target="#Bidon01" href="#">Vista previa</a></div>
                             <div class="text-center"><a class="btn btn-success mt-2" href="#">Añadir al carro</a></div>
                         </div>
-
                     </div>
-
                 </div>
                 <div class="col mb-5">
-
                     <!-- Modal(4) 3 Bidones de agua -->
                     <div class="modal fade" id="Bidon3" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
                         aria-labelledby="#Bidon3" aria-hidden="true">
@@ -443,8 +425,7 @@
                                         de agua fresca y pura. Con su diseño práctico y capacidad generosa, nunca te
                                         quedarás con sed. ¡Hazte con nuestros tres bidones de agua y mantén tu
                                         hidratación en marcha en todo momento!"</p>
-
-                                    <img src="img/3Bidones.jpg" width="350" height="550" id="imgmodal" alt="Bidon3">
+                                    <img src="{%static "img/3Bidones.jpg" %}" width="300" height="300" id="imgmodal" alt="Bidon3">
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-success">Agregar al carrito</button>
@@ -454,9 +435,9 @@
                     </div>
                     <div class="card h-100">
                         <!-- Product image-->
-                        <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">
+                        <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem"> Tendencia
                         </div>
-                        <img class="card-img-top" src="img/3Bidones.jpg" alt="recarga100" />
+                        <img class="card-img-top" src="{%static "img/3Bidones.jpg" %}" alt="recarga100" />
                         <!-- Product details-->
                         <div class="card-body p-4">
                             <div class="text-center">
@@ -468,7 +449,6 @@
                                     <div class="bi-star-fill"></div>
                                     <div class="bi-star-fill"></div>
                                     <div class="bi-star-fill"></div>
-
                                 </div>
                                 <!-- Product price-->
                                 $12.500
@@ -483,7 +463,6 @@
                     </div>
                 </div>
                 <div class="col mb-5">
-
                     <!-- Modal(5) 36 Bidones de agua -->
                     <div class="modal fade" id="Bidones36" data-bs-backdrop="static" data-bs-keyboard="false"
                         tabindex="-1" aria-labelledby="#Bidones36" aria-hidden="true">
@@ -504,8 +483,7 @@
                                         especiales, esta promoción te ofrece conveniencia y calidad en cada sorbo. ¡No
                                         te pierdas esta oportunidad de asegurar tu hidratación con nuestros 36 bidones
                                         de agua!"</p>
-
-                                    <img src="img/Bidones04.jpeg" width="300" height="600" id="imgmodal"
+                                    <img src="{%static "img/Bidones04.jpeg" %}" id="imgmodal"
                                         alt="Bidones36">
                                 </div>
                                 <div class="modal-footer">
@@ -516,9 +494,9 @@
                     </div>
                     <div class="card h-100">
                         <!-- Product image-->
-                        <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">
+                        <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Promo
                         </div>
-                        <img class="card-img-top" src="img/Bidones04.jpeg" alt="recarga100" />
+                        <img class="card-img-top" src="{%static "img/Bidones04.jpeg" %}" alt="recarga100" />
                         <!-- Product details-->
                         <div class="card-body p-4">
                             <div class="text-center">
@@ -530,7 +508,6 @@
                                     <div class="bi-star-fill"></div>
                                     <div class="bi-star-fill"></div>
                                     <div class="bi-star-fill"></div>
-
                                 </div>
                                 <!-- Product price-->
                                 $70.000
@@ -542,9 +519,7 @@
                                     data-bs-target="#Bidones36" href="#">Vista previa</a></div>
                             <div class="text-center"><a class="btn btn-success mt-2" href="#">Añadir al carro</a></div>
                         </div>
-
                     </div>
-
                 </div>
                 <div class="col mb-5">
                     <!-- Modal(6) six pack de agua Nestle -->
@@ -553,7 +528,7 @@
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h1 class="modal-title fs-5" id="bidonesagua">Descripcion del articulo</h1>
+                                    <h1 class="modal-title fs-5" id="Nestle01">Descripcion del articulo</h1>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal"
                                         aria-label="Close"></button>
                                 </div>
@@ -565,8 +540,7 @@
                                         para la mochila, la bolsa de gimnasio o el portavasos del coche. Disfruta de la
                                         frescura y pureza del agua Nestlé en cualquier momento y lugar. ¡Hazte con tu
                                         six pack hoy y mantente hidratado con estilo!"</p>
-
-                                    <img src="img/6Botellas.jpg" width="300" height="600" id="imgmodal" alt="recarga">
+                                    <img src="{%static "img/6Botellas.jpg" %}" width="300" height="600" id="imgmodal" alt="recarga">
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-success">Agregar al carrito</button>
@@ -576,7 +550,7 @@
                     </div>
                     <div class="card h-100">
                         <!-- Product image-->
-                        <img class="card-img-top" src="img/6Botellas.jpg" alt="img1" />
+                        <img class="card-img-top" src="{%static "img/6Botellas.jpg" %}" alt="img1" />
                         <!-- Product details-->
                         <div class="card-body p-4">
                             <div class="text-center">
@@ -591,7 +565,6 @@
                                 <!-- Product price-->
                                 $4.500
                             </div>
-
                         </div>
                         <!-- Product actions-->
                         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
@@ -602,7 +575,6 @@
                     </div>
                 </div>
                 <div class="col mb-5">
-
                     <!-- Modal(7) 100 bidones de agua -->
                     <div class="modal fade modal-zoom" id="bidonesagua" data-bs-backdrop="static"
                         data-bs-keyboard="false" tabindex="-1" aria-labelledby="#bidonesagua" aria-hidden="true">
@@ -622,8 +594,7 @@
                                         Ideal para hogares, empresas o eventos. Aprovecha esta oportunidad para asegurar
                                         tu suministro de agua a un costo conveniente y sin preocupaciones. ¡No dejes
                                         pasar esta oferta y asegura tu hidratación!"</p>
-
-                                    <img src="img/img1.png" id="imgmodal" alt="recarga">
+                                    <img src="{%static "img/img1.png" %}" id="imgmodal" alt="recarga">
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-success">Agregar al carrito</button>
@@ -633,7 +604,7 @@
                     </div>
                     <div class="card h-100">
                         <!-- Product image-->
-                        <img class="card-img-top" src="img/img1.png" alt="img1" />
+                        <img class="card-img-top" src="{%static "img/img1.png" %}" alt="img1" />
                         <!-- Product details-->
                         <div class="card-body p-4">
                             <div class="text-center">
@@ -648,7 +619,6 @@
                                 <!-- Product price-->
                                 $40.000
                             </div>
-
                         </div>
                         <!-- Product actions-->
                         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
@@ -679,7 +649,7 @@
                                         pierdas la oportunidad de asegurar tu hidratación con este conveniente paquete
                                         que te ofrece calidad y ahorro en cada entrega. ¡Haz tu pedido ahora y disfruta
                                         de la comodidad que mereces!"</p>
-                                    <img src="img/recarga.png" id="imgmodal" alt="recarga">
+                                    <img src="{%static "img/recarga.png" %}" id="imgmodal" alt="recarga">
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-success">Agregar al carrito</button>
@@ -692,7 +662,7 @@
                         <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">
                             Popular</div>
                         <!-- Product image-->
-                        <img class="card-img-top" src="img/recarga.png" alt="recarga" />
+                        <img class="card-img-top" src="{%static "img/recarga.png" %}" alt="recarga" />
                         <!-- Product details-->
                         <div class="card-body p-4">
                             <div class="text-center">
@@ -739,8 +709,7 @@
                                         simplemente para tener a mano en casa. Con un tamaño conveniente de 500cc, estas
                                         botellas son ideales para satisfacer tu sed en cualquier lugar. ¡Hazte con
                                         nuestro pack y asegura tu hidratación durante todo el día!</p>
-
-                                    <img src="img/oferta.jpeg" id="imgmodal" alt="botellas">
+                                    <img src="{%static "img/oferta.jpeg" %}" id="imgmodal" alt="botellas">
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-success">Agregar al carrito</button>
@@ -753,7 +722,7 @@
                         <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">
                             Oferta</div>
                         <!-- Product image-->
-                        <img class="card-img-top" src="img/oferta.jpeg" alt="oferta" />
+                        <img class="card-img-top" src="{%static "img/oferta.jpeg" %}" alt="oferta" />
                         <!-- Product details-->
                         <div class="card-body p-4">
                             <div class="text-center">
@@ -780,176 +749,6 @@
                     </div>
                 </div>
                 <div class="col mb-5">
-                    <!-- Modal(10) Dispensador USB -->
-                    <div class="modal fade" id="usb" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-                        aria-labelledby="#usb" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h1 class="modal-title fs-5" id="usb">Descripcion del articulo</h1>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                        aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    <h2 class="mt-3 text-center"><strong>Dispensador de agua USB</strong></h2>
-                                    <p class="text-center">El dispensador de agua USB es la solución perfecta para
-                                        mantenerse hidratado mientras estás en movimiento. Conéctalo a cualquier puerto
-                                        USB, ya sea en tu computadora, automóvil o cargador portátil, y disfruta de agua
-                                        fresca en cualquier momento y lugar. Su diseño compacto y portátil lo hace ideal
-                                        para llevarlo contigo a la oficina, en viajes o durante actividades al aire
-                                        libre. ¡Nunca fue tan fácil mantenerse hidratado!</p>
-
-                                    <img src="img/usb.png" id="imgmodal" alt="usb">
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-success">Agregar al carrito</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card h-100">
-                        <!-- Product image-->
-                        <img class="card-img-top" src="img/usb.png" alt="usb" />
-                        <!-- Product details-->
-                        <div class="card-body p-4">
-                            <div class="text-center">
-                                <!-- Product name-->
-                                <h5 class="fw-bolder">Dispensador USB</h5>
-                                <!-- Product reviews-->
-                                <div class="d-flex justify-content-center small text-warning mb-2">
-                                    <div class="bi-star-fill"></div>
-                                    <div class="bi-star-fill"></div>
-                                    <div class="bi-star-fill"></div>
-                                    <div class="bi-star-fill"></div>
-                                </div>
-                                <!-- Product price-->
-                                $4.000
-                            </div>
-                        </div>
-                        <!-- Product actions-->
-                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" data-bs-toggle="modal"
-                                    data-bs-target="#usb" href="#">Vista previa</a></div>
-                            <div class="text-center"><a class="btn btn-success mt-2" href="#">Añadir al carro</a></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col mb-5">
-                    <!-- Modal(11) Dispensador con puerto USB -->
-                    <div class="modal fade" id="Dispen" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-                        aria-labelledby="#Dispen" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h1 class="modal-title fs-5" id="usb">Descripcion del articulo</h1>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                        aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    <h2 class="mt-3 text-center"><strong>Dispensador con puerto USB</strong></h2>
-                                    <p class="text-center">Bomba manual agua purificada.
-
-                                        Bomba con opción de carga USB para dispensar agua en botellones.
-                                        Autonomía de hasta 100 horas aprox.
-                                        Dispensa agua a temperatura ambiente.
-                                        Fácil uso, ideal para uso institucional, en escuelas, oficinas, fabricas,
-                                        hospital, salas de espera.</p>
-
-                                    <img src="img/producto-dispensador-bomba-puertousb.jpg" width="350" height="600"
-                                        id="imgmodal" alt="Dispen">
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-success">Agregar al carrito</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card h-100">
-                        <!-- Product image-->
-                        <img class="card-img-top" src="img/producto-dispensador-bomba-puertousb.jpg" alt="Dispen" />
-                        <!-- Product details-->
-                        <div class="card-body p-4">
-                            <div class="text-center">
-                                <!-- Product name-->
-                                <h5 class="fw-bolder">Dispensador con puerto USB</h5>
-                                <!-- Product reviews-->
-                                <div class="d-flex justify-content-center small text-warning mb-2">
-                                    <div class="bi-star-fill"></div>
-                                    <div class="bi-star-fill"></div>
-                                    <div class="bi-star-fill"></div>
-                                    <div class="bi-star-fill"></div>
-                                    <!--Problema con la media estrellas-->
-                                    <span class="fa fa-star-half text-warning"></span>
-                                </div>
-                                <!-- Product price-->
-                                $6.500
-                            </div>
-                        </div>
-                        <!-- Product actions-->
-                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" data-bs-toggle="modal"
-                                    data-bs-target="#Dispen" href="#">Vista previa</a></div>
-                            <div class="text-center"><a class="btn btn-success mt-2" href="#">Añadir al carro</a></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col mb-5">
-
-                    <!-- Modal(12)Dispensador básico  -->
-                    <div class="modal fade" id="Dispen1" data-bs-backdrop="static" data-bs-keyboard="false"
-                        tabindex="-1" aria-labelledby="#Dispen1" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h1 class="modal-title fs-5" id="usb">Descripcion del articulo</h1>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                        aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    <h2 class="mt-3 text-center"><strong>Dispensador básico</strong></h2>
-                                    <p class="text-center">Este artículo está diseñado para tomar agua a temperatura
-                                        ambiente.
-                                        Producto duradero, ya que su fabricación es en plástico altamente resistente.
-                                    </p>
-
-                                    <img src="img/producto-dispensador-basico.jpg" width="350" height="350"
-                                        id="imgmodal" alt="Dispen1">
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-success">Agregar al carrito</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card h-100">
-                        <!-- Product image-->
-                        <img class="card-img-top" src="img/producto-dispensador-basico.jpg" alt="Dispen1" />
-                        <!-- Product details-->
-                        <div class="card-body p-4">
-                            <div class="text-center">
-                                <!-- Product name-->
-                                <h5 class="fw-bolder"></h5>Dispensador básico</h5>
-                                <!-- Product reviews-->
-                                <div class="d-flex justify-content-center small text-warning mb-2">
-                                    <div class="bi-star-fill"></div>
-                                    <div class="bi-star-fill"></div>
-                                    <div class="bi-star-fill"></div>
-
-                                </div>
-                                <!-- Product price-->
-                                $7.500
-                            </div>
-                        </div>
-                        <!-- Product actions-->
-                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" data-bs-toggle="modal"
-                                    data-bs-target="#Dispen1" href="#">Vista previa</a></div>
-                            <div class="text-center"><a class="btn btn-success mt-2" href="#">Añadir al carro</a></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col mb-5">
-
                     <!-- Modal(13)Dispensador de sobremesa con ventilado -->
                     <div class="modal fade" id="Dispen2" data-bs-backdrop="static" data-bs-keyboard="false"
                         tabindex="-1" aria-labelledby="Dispen2" aria-hidden="true">
@@ -964,20 +763,15 @@
                                     <h2 class="mt-3 text-center"><strong>Dispensador de sobremesa con
                                             ventilador</strong></h2>
                                     <p class="text-center">Dispensador de Agua eléctrico de sobremesa
-
                                         Características:
-
                                         Temperatura Caliente: 90ºC – 95ºC
                                         Temperatura fría: 10º – 15ºC
                                         Dimensiones:
-
                                         Alto 39cm – Ancho 29 cm – Largo 29cm
                                         Peso: 3.2 Kg
                                         Consumo:
-
                                         550W</p>
-                                    <img src="img/Producto-Dispensador-de-pedestal-con-compresor-.jpg" width="350"
-                                        height="350" id="imgmodal" alt="manillas">
+                                    <img src="{%static "img/dispensador.jpg" %}" id="imgmodal" alt="manillas">
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-success">Agregar al carrito</button>
@@ -990,7 +784,7 @@
                         <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">
                             Oferta</div>
                         <!-- Product image-->
-                        <img class="card-img-top" src="img/Producto-Dispensador-de-pedestal-con-compresor-.jpg"
+                        <img class="card-img-top" src="{%static "img/dispensador.jpg" %}"
                             alt="Dispen2" />
                         <!-- Product details-->
                         <div class="card-body p-4">
@@ -1002,7 +796,6 @@
                                     <div class="bi-star-fill"></div>
                                     <div class="bi-star-fill"></div>
                                     <div class="bi-star-fill"></div>
-
                                 </div>
                                 <!-- Product price-->
                                 <span class="text-muted text-decoration-line-through">$65.000</span>
@@ -1031,20 +824,15 @@
                                 <div class="modal-body">
                                     <h2 class="mt-3 text-center"><strong>Dispensador con compresor</strong></h2>
                                     <p class="text-center">Dispensador de Agua eléctrico con compresor
-
                                         Características:
-
                                         Temperatura Caliente: 95ºC
                                         Temperatura fría: 5º – 10ºC
                                         Dimensiones:
-
                                         Alto 98cm – Ancho 34cm – Largo 33cm
                                         Peso: 16 Kg
                                         Consumo:
-
                                         550W</p>
-                                    <img src="img/Dispensador-con-compresor_01.png" width="350" height="350"
-                                        id="imgmodal" alt="Dispen3">
+                                    <img src="{%static "img/compresor_1.png" %}" id="imgmodal" alt="Dispen3">
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-success">Agregar al carrito</button>
@@ -1054,10 +842,10 @@
                     </div>
                     <div class="card h-100">
                         <!-- Sale badge-->
-                        <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">
+                        <div class="badge bg-danger text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Aproveche!
                         </div>
                         <!-- Product image-->
-                        <img class="card-img-top" src="img/Dispensador-con-compresor_01.png" alt="Dispen3" />
+                        <img class="card-img-top" src="{%static "img/compresor_1.png" %}" alt="Dispen3" />
                         <!-- Product details-->
                         <div class="card-body p-4">
                             <div class="text-center">
@@ -1069,7 +857,6 @@
                                     <div class="bi-star-fill"></div>
                                     <div class="bi-star-fill"></div>
                                     <div class="bi-star-fill"></div>
-
                                 </div>
                                 <!-- Product price-->
                                 <span class="text-muted text-decoration-line-through">130.000</span>
@@ -1086,7 +873,7 @@
                 </div>
                 <div class="col mb-5">
                     <!-- Modal(15)Manillas simples para bidones 10L - 20L -->
-                    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
+                    <div class="modal fade" id="manillas" data-bs-backdrop="static" data-bs-keyboard="false"
                         tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
@@ -1105,7 +892,7 @@
                                         llevar tus bidones sea más fácil que nunca. ¡No más problemas al cargar con tus
                                         bidones! Añade estas manillas simples a tu pedido y simplifica tu vida
                                         cotidiana."</p>
-                                    <img src="img/manillas-simples-300x300.png" id="imgmodal" alt="manillas">
+                                    <img src="{%static "img/manillas-simples-300x300.png" %}" id="imgmodal" alt="manillas">
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-success">Agregar al carrito</button>
@@ -1118,7 +905,7 @@
                         <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">
                             Oferta</div>
                         <!-- Product image-->
-                        <img class="card-img-top" src="img/manillas-simples-300x300.png" alt="manillas" />
+                        <img class="card-img-top" src="{%static "img/manillas-simples-300x300.png" %}" alt="manillas" />
                         <!-- Product details-->
                         <div class="card-body p-4">
                             <div class="text-center">
@@ -1139,73 +926,12 @@
                         <!-- Product actions-->
                         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
                             <div class="text-center"><a class="btn btn-outline-dark mt-auto" data-bs-toggle="modal"
-                                    data-bs-target="#staticBackdrop" href="#">Vista previa</a></div>
+                                    data-bs-target="#manillas" href="#">Vista previa</a></div>
                             <div class="text-center"><a class="btn btn-success mt-2" href="#">Añadir al carro</a></div>
                         </div>
                     </div>
                 </div>
                 <div class="col mb-5">
-
-                    <!-- Modal(16)Dispensador de Sobremesa + 2 Bidones de 20L SIN MANILLAS -->
-                    <div class="modal fade" id="dispensador-sobre" data-bs-backdrop="static" data-bs-keyboard="false"
-                        tabindex="-1" aria-labelledby="#dispensador-sobre" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h1 class="modal-title fs-5" id="#dispensador-sobre">Descripcion del articulo</h1>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                        aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    <h2 class="mt-3 text-center"><strong>Dispensador de Sobremesa + 2 Bidones de 20L SIN
-                                            MANILLAS</strong></h2>
-                                    <p class="text-center">"¡Oferta imperdible! Obtén un dispensador de sobremesa junto
-                                        con 2 bidones de 20 litros sin manillas por un precio increíble.
-                                        Antes a 120 mil pesos, ¡ahora solo 65 mil pesos! Este dispensador te brinda
-                                        comodidad y practicidad para acceder al agua fresca en cualquier momento.
-                                        Los bidones de 20 litros, sin manillas, aseguran un fácil manejo y
-                                        almacenamiento.
-                                        Aprovecha esta oportunidad para equipar tu hogar u oficina con todo lo necesario
-                                        para mantenerse hidratado.
-                                        ¡Haz tu pedido ahora y disfruta de esta oferta antes de que se agote!"</p>
-                                    <img src="img/OFERTA-300x300.png" id="imgmodal" alt="oferta300">
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-success">Agregar al carrito</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card h-100">
-                        <!-- Product image-->
-                        <img class="card-img-top" src="img/OFERTA-300x300.png" alt="Dispensador" />
-                        <!-- Product details-->
-                        <div class="card-body p-4">
-                            <div class="text-center">
-                                <!-- Product name-->
-                                <h5 class="fw-bolder">Dispensador de Sobremesa + 2 Bidones de 20L SIN MANILLAS</h5>
-                                <div class="d-flex justify-content-center small text-warning mb-2">
-                                    <div class="bi-star-fill"></div>
-                                    <div class="bi-star-fill"></div>
-                                    <div class="bi-star-fill"></div>
-                                    <div class="bi-star-fill"></div>
-                                    <div class="bi-star-fill"></div>
-                                </div>
-                                <!-- Product price-->
-                                <span class="text-muted text-decoration-line-through">$120.000</span>
-                                $65.000
-                            </div>
-                        </div>
-                        <!-- Product actions-->
-                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" data-bs-toggle="modal"
-                                    data-bs-target="#dispensador-sobre" href="#">Vista previa</a></div>
-                            <div class="text-center"><a class="btn btn-success mt-2" href="#">Añadir al carro</a></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col mb-5">
-
                     <!-- Modal(17)Kit inicial 3 bidones + soporte premium basico -->
                     <div class="modal fade" id="soporte" data-bs-backdrop="static" data-bs-keyboard="false"
                         tabindex="-1" aria-labelledby="#soporte" aria-hidden="true">
@@ -1227,7 +953,7 @@
                                         asegura un acceso fácil y organizado a tus bidones. ¡No esperes más para
                                         asegurar tu hidratación! Adquiere nuestro kit inicial y disfruta de agua de
                                         calidad donde quieras que estés."</p>
-                                    <img src="img/KIT.png" id="imgmodal" alt="manillas">
+                                    <img src="{%static "img/KIT.png" %}" id="imgmodal" alt="soporte">
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-success">Agregar al carrito</button>
@@ -1237,10 +963,10 @@
                     </div>
                     <div class="card h-100">
                         <!-- Sale badge-->
-                        <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">
+                        <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Tendencia
                         </div>
                         <!-- Product image-->
-                        <img class="card-img-top" src="img/KIT.png" alt="kit" />
+                        <img class="card-img-top" src="{%static "img/KIT.png" %}" alt="kit" />
                         <!-- Product details-->
                         <div class="card-body p-4">
                             <div class="text-center">
@@ -1286,8 +1012,7 @@
                                         consumes, asegurando tu hidratación en todo momento. Aprovecha esta oportunidad
                                         para abastecerte de manera económica y práctica. ¡Haz tu pedido ahora y disfruta
                                         de agua de calidad en tu hogar u oficina!"</p>
-
-                                    <img src="img/recarga10litross-300x300.jpg" id="imgmodal" alt="recarga10l">
+                                    <img src="{%static "img/recarga10litross-300x300.jpg" %}" id="imgmodal" alt="recarga10l">
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-success">Agregar al carrito</button>
@@ -1297,7 +1022,7 @@
                     </div>
                     <div class="card h-100">
                         <!-- Product image-->
-                        <img class="card-img-top" src="img/recarga10litross-300x300.jpg" alt="recarga100" />
+                        <img class="card-img-top" src="{%static "img/recarga10litross-300x300.jpg" %}" alt="recarga100" />
                         <!-- Product details-->
                         <div class="card-body p-4">
                             <div class="text-center">
@@ -1322,188 +1047,6 @@
                             <div class="text-center"><a class="btn btn-success mt-2" href="#">Añadir al carro</a></div>
                         </div>
                     </div>
-                </div>
-
-                <div class="col mb-5">
-                    <!-- Modal(19) Dispensador de vidrio estilo mamasam -->
-                    <div class="modal fade" id="xd" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-                        aria-labelledby="#xd" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h1 class="modal-title fs-5" id="bidones">Descripcion del articulo</h1>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                        aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    <h2 class="mt-3 text-center"><strong>Dispensador de vidrio estilo mamasam</strong>
-                                    </h2>
-                                    <p class="text-center"> "Un estilo rustico para tu sala de estar, crees poder ser
-                                        una mamasam con esto lo lograras!!"</p>
-
-                                    <img src="img/8853452d-cc63-4b41-b1cb-9793c0ba127f.jpg" width="350" height="400"
-                                        id="imgmodal" alt="xd">
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-success">Agregar al carrito</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card h-100">
-                        <!-- Product image-->
-                        <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">
-                        </div>
-                        <img class="card-img-top" src="img/8853452d-cc63-4b41-b1cb-9793c0ba127f.jpg" alt="recarga100" />
-                        <!-- Product details-->
-                        <div class="card-body p-4">
-                            <div class="text-center">
-                                <!-- Product name-->
-                                <h5 class="fw-bolder">Dispensador de vidrio estilo mamasam</h5>
-                                <!-- Product reviews-->
-                                <div class="d-flex justify-content-center small text-warning mb-2">
-                                    <div class="bi-star-fill"></div>
-                                    <div class="bi-star-fill"></div>
-                                    <div class="bi-star-fill"></div>
-                                    <div class="bi-star-fill"></div>
-
-                                </div>
-                                <!-- Product price-->
-                                $10.000
-                            </div>
-                        </div>
-                        <!-- Product actions-->
-                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" data-bs-toggle="modal"
-                                    data-bs-target="#xd" href="#">Vista previa</a></div>
-                            <div class="text-center"><a class="btn btn-success mt-2" href="#">Añadir al carro</a></div>
-                        </div>
-
-                    </div>
-
-                </div>
-                <div class="col mb-5">
-                    <!-- Modal(20)2 Dispensador de vidrio estilo mamasam -->
-                    <div class="modal fade" id="xdd" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-                        aria-labelledby="#xdd" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h1 class="modal-title fs-5" id="bidones">Descripcion del articulo</h1>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                        aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    <h2 class="mt-3 text-center"><strong> 2 Dispensador de vidrio estilo
-                                            mamasam</strong></h2>
-                                    <p class="text-center"> "Un estilazo rustico para tu sala de estar, crees poder ser
-                                        una mamasam con esto lo lograras doblemente!!"</p>
-
-                                    <img src="img/17d44c66-50da-4523-81e5-71982d1ff00c.jpg" width="350" height="450"
-                                        id="imgmodal" alt="xdd">
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-success">Agregar al carrito</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card h-100">
-                        <!-- Product image-->
-                        <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">
-                        </div>
-                        <img class="card-img-top" src="img/17d44c66-50da-4523-81e5-71982d1ff00c.jpg" alt="recarga100" />
-                        <!-- Product details-->
-                        <div class="card-body p-4">
-                            <div class="text-center">
-                                <!-- Product name-->
-                                <h5 class="fw-bolder"> 2 Dispensador de vidrio estilo mamasam</h5>
-                                <!-- Product reviews-->
-                                <div class="d-flex justify-content-center small text-warning mb-2">
-                                    <div class="bi-star-fill"></div>
-                                    <div class="bi-star-fill"></div>
-                                    <div class="bi-star-fill"></div>
-                                    <div class="bi-star-fill"></div>
-                                    <div class="bi-star-fill"></div>
-
-                                </div>
-                                <!-- Product price-->
-                                $19.990
-                            </div>
-                        </div>
-                        <!-- Product actions-->
-                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" data-bs-toggle="modal"
-                                    data-bs-target="#xdd" href="#">Vista previa</a></div>
-                            <div class="text-center"><a class="btn btn-success mt-2" href="#">Añadir al carro</a></div>
-                        </div>
-
-                    </div>
-
-                </div>
-                <div class="col mb-5">
-                    <!-- Modal(21) Tambor plastico de agua 25L -->
-                    <div class="modal fade" id="Tarro" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-                        aria-labelledby="#Tarro" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h1 class="modal-title fs-5" id="bidones">Descripcion del articulo</h1>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                        aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    <h2 class="mt-3 text-center"><strong>Tambor plastico de agua 25L</strong></h2>
-                                    <p class="text-center">
-                                        "Introducimos nuestro tambor plástico de agua, una solución robusta y confiable
-                                        para tus necesidades de almacenamiento de agua. Fabricado con plástico duradero
-                                        de alta calidad, este tambor garantiza la seguridad y la frescura del agua que
-                                        contiene. Con una capacidad generosa, es perfecto para almacenar grandes
-                                        volúmenes de agua en el hogar, la oficina o en situaciones de emergencia. Su
-                                        diseño hermético ayuda a preservar la calidad del agua, mientras que su asa
-                                        resistente facilita su transporte. ¡Asegura tu suministro de agua con nuestro
-                                        tambor plástico confiable y práctico!"</p>
-
-                                    <img src="img/Tarro.jpg" width="350" height="350" id="imgmodal" alt="Tarro">
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-success">Agregar al carrito</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card h-100">
-                        <!-- Product image-->
-                        <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">
-                        </div>
-                        <img class="card-img-top" src="img/Tarro.jpg" width="100" height="325" alt="recarga100" />
-                        <!-- Product details-->
-                        <div class="card-body p-4">
-                            <div class="text-center">
-                                <!-- Product name-->
-                                <h5 class="fw-bolder">Tambor plastico de agua 25L</h5>
-                                <!-- Product reviews-->
-                                <div class="d-flex justify-content-center small text-warning mb-2">
-                                    <div class="bi-star-fill"></div>
-                                    <div class="bi-star-fill"></div>
-                                    <div class="bi-star-fill"></div>
-                                    <div class="bi-star-fill"></div>
-                                    <div class="bi-star-fill"></div>
-                                    <div class="bi-star-fill"></div>
-                                </div>
-                                <!-- Product price-->
-                                $25.000
-                            </div>
-                        </div>
-                        <!-- Product actions-->
-                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" data-bs-toggle="modal"
-                                    data-bs-target="#Ta" href="#">Vista previa</a></div>
-                            <div class="text-center"><a class="btn btn-success mt-2" href="#">Añadir al carro</a></div>
-                        </div>
-
-                    </div>
-
                 </div>
                 <div class="col mb-5">
                     <!-- Modal(22)Bin de 1000 Litros -->
@@ -1530,9 +1073,7 @@
                                         distribución del líquido contenido. Ya sea en entornos industriales, agrícolas o
                                         comerciales, el bin de 1000 litros ofrece una solución confiable y conveniente
                                         para tus necesidades de almacenamiento a gran escala.</p>
-
-                                    <img src="img/D_NQ_NP_628494-MLC70179141803_062023-O.webp" width="350" height="350"
-                                        id="imgmodal" alt="Bin">
+                                    <img src="{%static "img/bin1000.png" %}" id="imgmodal" alt="Bin">
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-success">Agregar al carrito</button>
@@ -1542,9 +1083,9 @@
                     </div>
                     <div class="card h-100">
                         <!-- Product image-->
-                        <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">
+                        <div class="badge bg-danger text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Ultimas Unidades!
                         </div>
-                        <img class="card-img-top" src="img/D_NQ_NP_628494-MLC70179141803_062023-O.webp" width="350"
+                        <img class="card-img-top" src="{%static "img/bin1000.png" %}"
                             height="350" alt="recarga100" />
                         <!-- Product details-->
                         <div class="card-body p-4">
@@ -1570,132 +1111,9 @@
                                     data-bs-target="#Bin" href="#">Vista previa</a></div>
                             <div class="text-center"><a class="btn btn-success mt-2" href="#">Añadir al carro</a></div>
                         </div>
-
                     </div>
-
                 </div>
                 <div class="col mb-5">
-
-                    <!-- Modal(23)Tarro de Red Bull 20L -->
-                    <div class="modal fade" id="Red-Bull" data-bs-backdrop="static" data-bs-keyboard="false"
-                        tabindex="-1" aria-labelledby="#Red-Bull" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h1 class="modal-title fs-5" id="bidones">Descripcion del articulo</h1>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                        aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    <h2 class="mt-3 text-center"><strong>Tarro de Red Bull 20L </strong></h2>
-                                    <p class="text-center">
-                                        "Presentamos el icónico tarro de Red Bull, la combinación perfecta de energía y
-                                        sabor en un envase elegante y práctico. Este tarro vibrante contiene la energía
-                                        necesaria para elevar tu día al siguiente nivel, ofreciendo el impulso que
-                                        necesitas cuando más lo necesitas. Con su diseño distintivo y llamativo, el
-                                        tarro de Red Bull no solo te ofrece un estímulo instantáneo, sino que también se
-                                        convierte en un accesorio de moda que refleja tu estilo de vida activo y
-                                        enérgico. Disfruta del sabor único y la potencia de Red Bull en cada sorbo.
-                                        ¡Hazte con tu tarro de Red Bull y libera tu energía hoy mismo!"</p>
-
-                                    <img src="img/Red_bull.jpeg" width="300" height="650" id="imgmodal" alt="Red-Bull">
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-success">Agregar al carrito</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card h-100">
-                        <!-- Product image-->
-                        <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">
-                        </div>
-                        <img class="card-img-top" src="img/Red_bull.jpeg" alt="recarga100" />
-                        <!-- Product details-->
-                        <div class="card-body p-4">
-                            <div class="text-center">
-                                <!-- Product name-->
-                                <h5 class="fw-bolder">Tarro de Red Bull 20L</h5>
-                                <!-- Product reviews-->
-                                <div class="d-flex justify-content-center small text-warning mb-2">
-                                    <div class="bi-star-fill"></div>
-                                    <div class="bi-star-fill"></div>
-                                    <div class="bi-star-fill"></div>
-                                    <div class="bi-star-fill"></div>
-                                    <div class="bi-star-fill"></div>
-                                    <div class="bi-star-fill"></div>
-                                </div>
-                                <!-- Product price-->
-                                $30.000
-                            </div>
-                        </div>
-                        <!-- Product actions-->
-                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" data-bs-toggle="modal"
-                                    data-bs-target="#Red-Bull" href="#">Vista previa</a></div>
-                            <div class="text-center"><a class="btn btn-success mt-2" href="#">Añadir al carro</a></div>
-                        </div>
-
-                    </div>
-
-                </div>
-                <div class="col mb-5">
-                    <!-- Modal(24) XD Ketchup -->
-                    <div class="modal fade" id="ketchupp" data-bs-backdrop="static" data-bs-keyboard="false"
-                        tabindex="-1" aria-labelledby="#ketchupp" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h1 class="modal-title fs-5" id="ketchupp">Descripcion del articulo</h1>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                        aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    <h2 class="mt-3 text-center"><strong>Tarro de Heinz tomato Ketchup 20L </strong>
-                                    </h2>
-                                    <p class="text-center"> Esperate, ¿enserio tengo que presentar este articulo?</p>
-
-                                    <img src="img/Y esto.jpeg" width="300" height="350" id="imgmodal" alt="recarga100">
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-success">Agregar al carrito</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card h-100">
-                        <!-- Product image-->
-                        <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">
-                        </div>
-                        <img class="card-img-top" src="img/Y esto.jpeg" alt="recarga100" />
-                        <!-- Product details-->
-                        <div class="card-body p-4">
-                            <div class="text-center">
-                                <!-- Product name-->
-                                <h5 class="fw-bolder">Tarro de Heinz tomato Ketchup 20L </h5>
-                                <!-- Product reviews-->
-                                <div class="d-flex justify-content-center small text-warning mb-2">
-                                    <div class="bi-star-fill"></div>
-                                    <div class="bi-star-fill"></div>
-                                    <div class="bi-star-fill"></div>
-
-                                </div>
-                                <!-- Product price-->
-                                $30.000
-                            </div>
-                        </div>
-                        <!-- Product actions-->
-                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" data-bs-toggle="modal"
-                                    data-bs-target="#ketchupp" href="#">Vista previa</a></div>
-                            <div class="text-center"><a class="btn btn-success mt-2" href="#">Añadir al carro</a></div>
-                        </div>
-
-                    </div>
-
-                </div>
-                <div class="col mb-5">
-
                     <!-- Modal Ultimo COCA-COLA (25) -->
                     <div class="modal fade" id="coca" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
                         aria-labelledby="#coca" aria-hidden="true">
@@ -1709,8 +1127,7 @@
                                 <div class="modal-body">
                                     <h2 class="mt-3 text-center"><strong>2 Bidónes de Coca-Cola metalicos</strong></h2>
                                     <p class="text-center"> "Como se nota que eri malito pal agua!"</p>
-
-                                    <img src="img/Coca-Cola Bidón metálico 001.jpg" id="imgmodal" alt="coca">
+                                    <img src="{%static "img/bidon_coca.jpg" %}" id="imgmodal" alt="coca">
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-success">Agregar al carrito</button>
@@ -1722,7 +1139,7 @@
                         <!-- Product image-->
                         <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Bonus
                         </div>
-                        <img class="card-img-top" src="img/Coca-Cola Bidón metálico 001.jpg" alt="recarga100" />
+                        <img class="card-img-top" src="{%static "img/bidon_coca.jpg" %}" alt="recarga100" />
                         <!-- Product details-->
                         <div class="card-body p-4">
                             <div class="text-center">
@@ -1742,7 +1159,6 @@
                         </div>
                         <!-- Product actions-->
                         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-
                             <div class="text-center"><a class="btn btn-outline-dark mt-auto" data-bs-toggle="modal"
                                     data-bs-target="#coca" href="#">Vista previa</a></div>
                             <div class="text-center"><a class="btn btn-success mt-2" href="#">Añadir al carro</a></div>
@@ -1763,7 +1179,6 @@
             <div class="container"> <a href="#" class="m-0 text-white text-center" id="red">
                     <p>Redes Sociales</p>
                 </a></div>
-
             <section class="botones">
                 <a href="https://www.instagram.com/duocucsanjoaquin" class="fa fa-instagram" id="ins"></a>
                 <a href="https://web.facebook.com/DuocUC.SanJoaquin" class="fa fa-facebook" id="fa"></a>
@@ -1777,7 +1192,7 @@
     <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Core theme JS-->
-    <script src="js/scripts.js"></script>
+    <script src="{% static 'js/main.js' %}"></script>
 </body>
 
 </html>
