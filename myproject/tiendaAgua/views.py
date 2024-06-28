@@ -10,8 +10,8 @@ def certificacion_view(request):
     return render(request, "Certificacion.html")
 def contactanos_view(request):
     return render(request, "Contactanos.html")
-def inicio_view(request):
-    return render(request, "Inicio.html")
+def productos_view(request):
+    return render(request, "productos.html")
 
 def sobrenosotros_view(request):
     return render(request, "SobreNosotros.html")
@@ -46,7 +46,7 @@ def eliminar_view(request, id):
         # Eliminar el producto
         producto.delete()
         # Redirigir a la página de listado de productos
-        return HttpResponseRedirect('listar_view')  # Cambia '/Listar/' por la URL correcta de tu listado de productos
+        return HttpResponseRedirect('/Listar/')  # Cambia '/Listar/' por la URL correcta de tu listado de productos
     
     # Renderizar el template de confirmación de eliminación
     return render(request, 'Eliminar.html', {'producto': producto})
