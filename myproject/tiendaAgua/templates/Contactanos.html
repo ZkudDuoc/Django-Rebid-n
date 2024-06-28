@@ -1,3 +1,4 @@
+{%load static%}
 <!DOCTYPE html>
 <html lang="es">
 
@@ -10,11 +11,11 @@
     <!--Iconos-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Favicon-->
-    <link rel="icon" type="image/x-icon" href="img/droplet.svg" />
+    <link rel="icon" type="image/x-icon" href="{%static "img\droplet.svg" %}" />
     <!-- Bootstrap icons-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
     <!-- Core theme CSS (includes Bootstrap)-->
-    <link href="css/styles.css" rel="stylesheet" />
+    <link href="{%static "styles.css" %}" rel="stylesheet" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,12 +25,11 @@
 </head>
 
 <body>
-    <!-- Barra de navegacion-->
     <div class=barra-navegacion>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container px-4 px-lg-5">
-                <img src="img/droplet.svg" alt="Logo" width="30" height="24" class="d-inline-block align-text-top me-1">
-                <strong><a class="navbar-brand" href="Inicio.html">REBIDON</a> </strong>
+                <img src="{%static "img\droplet.svg" %}" alt="Logo" width="30" height="24" class="d-inline-block align-text-top me-1">
+                <strong><a class="navbar-brand" href="{% url 'Inicio' %}">REBIDON</a> </strong>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation"><span
@@ -37,14 +37,14 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
                         <li class="nav-item"><a class="nav-link active" aria-current="page"
-                                href="Inicio.html">Inicio</a>
+                                href="{% url 'Inicio' %}">Inicio</a>
                         </li>
-                        <li class="nav-item"><a class="nav-link" href="Contactanos.html">Contacto</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'Contactanos' %}" >Contacto</a></li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button"
                                 data-bs-toggle="dropdown" aria-expanded="false">Mas</a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="index.html">Todos los productos</a></li>
+                                <li><a class="dropdown-item" href="{% url 'index' %}">Todos los productos</a></li>
                                 <li>
                                     <hr class="dropdown-divider" />
                                 </li>
@@ -52,7 +52,7 @@
                                         data-bs-target="#staticBackdrop">Entrar</a></li>
                                 <li><a class="dropdown-item" id="cursor" data-bs-toggle="modal"
                                         data-bs-target="#Register">Registrarse</a></li>
-                                <li><a class="dropdown-item" href="SobreNosotros.html">Sobre Nosotros</a></li>
+                                <li><a class="dropdown-item" href="{% url 'SobreNosotros' %}">Sobre Nosotros</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -219,9 +219,6 @@
             </div>
         </div>
     </div>
-
-
-
     <!--Modal login/Register-->
     <!-- Header-->
     <header class="bg-dark py-1">
@@ -229,7 +226,7 @@
             <div class="row gx-1 justify-content-center">
                 <div class="col-lg-10">
                     <div class="text-center my-1">
-                        <img src="img/pongase-contacto-.jpg" alt="foto contacto">
+                        <img src="{%static "img\pongase-contacto-.jpg" %}" alt="foto contacto">
                     </div>
                 </div>
             </div>
@@ -324,7 +321,7 @@
     <!-- jQuery Validate -->
     <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
     <!-- Core theme JS-->
-    <script src="js/scriptsContactanos.js"></script>
+    <script src="{% static 'js/scriptsContactanos' %}"></script>
 </body>
 
 </html>
