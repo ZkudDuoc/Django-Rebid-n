@@ -16,6 +16,8 @@ def inicio_view(request):
 def sobrenosotros_view(request):
     return render(request, "SobreNosotros.html")
 
+
+#Productos
 def listar_view(request):
     productos = Producto.objects.all()
     context = {'productos' : productos}
@@ -38,7 +40,6 @@ def agregar_view(request):
         return render(request, 'agregar.html')
     
 
-    
 def eliminar_view(request, id):
     producto = get_object_or_404(Producto, pk=id)
     
@@ -50,3 +51,25 @@ def eliminar_view(request, id):
     
     # Renderizar el template de confirmación de eliminación
     return render(request, 'Eliminar.html', {'producto': producto})
+
+#clientes
+def listar_cliente_view(request):
+    clientes = Cliente.objects.all()
+    context = {'clientes' : clientes}
+    return render(request,"Listar_cliente.html", {'clientes' : clientes})
+
+def agregar_cliente_view(request):
+    if request.method == 'POST':
+        # Obtener los datos del formulario
+        nombre = request.POST.get('nombre')
+        apellido = request.POST.get('apellido')
+        email = request.POST.get('email')
+        contraseña = request.POST.get('contraseña')
+        
+        # Crear un nuevo objeto Producto y guardarlo
+        Cliente.objects.create(nombre=nombre, apellido=apellido, email=email, contraseña=contraseña)
+        
+        # Redirigir a la página de listado de productos
+        return HttpResponseRedirect('/Listar_cliente/')  # Cambia '/Listar/' por la URL correcta de tu listado de productos
+    else:
+        return render(request, 'agregar.html')

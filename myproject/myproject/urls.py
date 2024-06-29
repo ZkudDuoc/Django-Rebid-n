@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.urls import path
-from tiendaAgua.views import index_view, eliminar_view, agregar_view, certificacion_view, contactanos_view, inicio_view, listar_view, sobrenosotros_view
+from tiendaAgua.views import index_view, listar_cliente_view,  eliminar_view, agregar_view, certificacion_view, contactanos_view, inicio_view, listar_view, sobrenosotros_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -11,6 +11,7 @@ urlpatterns = [
     path('Sobrenosotros/', sobrenosotros_view, name='SobreNosotros'),
     path('Listar/', listar_view, name= 'listado_producto'),
     path('Agregar/', agregar_view,  name='agregar_listar'),
-    path('Eliminar/<int:id>/', eliminar_view, name='eliminar_producto')
+    path('Eliminar/<int:id>/', eliminar_view, name='eliminar_producto'),
+    path('Listar_cliente/', listar_cliente_view)
 ]
 
