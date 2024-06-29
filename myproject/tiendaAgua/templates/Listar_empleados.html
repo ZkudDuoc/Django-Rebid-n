@@ -1,0 +1,27 @@
+<!-- listar_empleados.html -->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Listado de Empleados</title>
+</head>
+<body>
+    <h2>Listado de Empleados</h2>
+    <ul>
+        {% for empleado in empleados %}
+        <li>
+            <strong>{{ empleado.nombre }} {{ empleado.apellido }}</strong> - Email: {{ empleado.email }} - Cargo: {{ empleado.cargo }}
+            <a href="{% url 'modificar_empleado' empleado.id %}">Modificar</a>
+            <form method="post" action="{% url 'eliminar_empleado' empleado.id %}">
+                {% csrf_token %}
+                <button type="submit">Eliminar</button>
+            </form>
+        </li>
+        {% empty %}
+        <li>No hay empleados registrados.</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'agregar_empleado' %}">Agregar Empleado</a>
+</body>
+</html>

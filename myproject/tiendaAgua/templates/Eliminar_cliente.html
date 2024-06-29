@@ -1,10 +1,8 @@
-
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Listado de Clientes</title>
+    <title>Listar y Eliminar Clientes</title>
 </head>
 <body>
     <h2>Listado de Clientes</h2>
@@ -12,8 +10,7 @@
         {% for cliente in clientes %}
         <li>
             <strong>{{ cliente.nombre }}</strong> {{ cliente.apellido }} - Email: {{ cliente.email }} - Contraseña: {{ cliente.contraseña }}
-            <a href="{% url 'modificar_cliente' cliente.id %}">Modificar</a>
-            <form method="post" action="{% url 'eliminar_cliente' cliente.id %}">
+            <form method="POST" action="{% url 'eliminar_cliente' cliente.id %}">
                 {% csrf_token %}
                 <button type="submit">Eliminar</button>
             </form>
@@ -22,6 +19,5 @@
         <li>No hay clientes registrados.</li>
         {% endfor %}
     </ul>
-    <a href="{% url 'agregar_cliente' %}">Agregar Cliente</a>
 </body>
 </html>
