@@ -16,6 +16,8 @@ def Registro_view(request):
     return render(request, "Registro.html")    
 def sobrenosotros_view(request):
     return render(request, "SobreNosotros.html")
+def Login_view(request):
+    return render(request, "Login.html")
 def listar_view(request):
     productos = Producto.objects.all()
     context = {'productos' : productos}

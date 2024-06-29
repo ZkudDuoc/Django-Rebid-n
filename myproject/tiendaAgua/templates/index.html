@@ -24,7 +24,6 @@
         href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
         rel="stylesheet">
 </head>
-
 <body>
     <!-- Barra de navegacion-->
     <div class=barra-navegacion>
@@ -84,160 +83,8 @@
             </div>
         </nav>
     </div>
-    <!--modal registro/login/recuperacion-->
-    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-        aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5 d-flex text-center" id="staticBackdropLabel">Iniciar Sesión</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form onsubmit="return validarInicioSesion();">
-                        <div class="mb-3">
-                            <label for="inputcorreo1" class="form-label fs-6 fw-bold">Ingresa tu correo</label>
-                            <input type="email" id="inputcorreo1" class="form-control inputcorreo"
-                                placeholder="Ejemplo@email.com" required>
-                            <!-- Mensaje de error para el correo electrónico -->
-                            <div id="errorCorreo" class="invalid-feedback">Por favor ingresa un correo electrónico
-                                válido.
-                            </div>
-                        </div>
-                        <div class="mb-3">
-                            <label for="inputPassword" class="form-label fs-6 fw-bold">Ingresa tu contraseña</label>
-                            <input type="password" id="inputPassword" class="form-control inputcontraseña"
-                                aria-describedby="passwordHelpInline" placeholder="1234****" required>
-                            <!-- Mensaje de error para la contraseña -->
-                            <div id="errorContraseña" class="invalid-feedback">La contraseña debe tener al menos 8
-                                caracteres.</div>
-                        </div>
-                        <div class="form-check mb-3">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                            <label class="form-check-label" for="flexCheckDefault">Recuérdame</label>
-                        </div>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <p class="mt-4">
-                                <a data-bs-toggle="modal" data-bs-target="#contraseña" id="cursor" class="fw-bold">¿Haz
-                                    olvidado tu contraseña?</a>
-                            </p>
-                            <div class="ml-auto">
-                                <button type="submit" class="btn btn-outline-success mt-2">Entrar</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!--Registrarse-->
-    <div class="modal fade" id="Register" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-        aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header text-center">
-                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Registrarse</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form onsubmit="return validarRegistro();">
-                        <div class="mb-3">
-                            <label for="inputnombre" class="form-label fs-6 fw-bold">Ingresa tu nombre</label>
-                            <input type="text" id="inputnombre" class="form-control inputnombre"
-                                placeholder="Ej: Juanito Perez" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="inputcorreo2" class="form-label fs-6 fw-bold">Ingresa tu correo</label>
-                            <input type="email" id="inputcorreo2" class="form-control inputcorreo"
-                                placeholder="Usuario@email.com" required>
-                            <div id="errorCorreo" class="invalid-feedback">Por favor ingresa un correo electrónico
-                                válido.
-                            </div>
-                        </div>
-                        <div class="mb-3">
-                            <label for="password" class="form-label fs-6 fw-bold">Ingresa tu contraseña
-                                <img src="assets/key-fill.svg" height="16px" width="16px"></label>
-                            <input type="password" id="password" class="form-control inputcontraseña"
-                                placeholder="4-8 Caracteres" required>
-                            <div id="errorContraseñaRegistro" class="invalid-feedback">La contraseña debe tener al menos
-                                8
-                                caracteres.</div>
-                        </div>
-                        <div class="mb-3">
-                            <label for="password2" class="form-label fs-6 fw-bold">Repite tu contraseña
-                                <img src="assets/key-fill.svg" height="16px" width="16px"></label>
-                            <input type="password" id="password2" class="form-control inputcontraseña"
-                                placeholder="Repite tu contraseña" required>
-                            <div id="errorContraseñaRepetida" class="invalid-feedback">Las contraseñas no coinciden.
-                            </div>
-                        </div>
-                        <div class="form-check mb-3">
-                            <input class="form-check-input" type="checkbox" value="" id="show-password">
-                            <label class="form-check-label" for="show-password">Mostrar contraseña</label>
-                        </div>
-                        <div class="mb-3">
-                            <p class="text-primary">
-                                ¿Ya tienes cuenta? <a href="#" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                    class="fw-bold">Inicia sesión aquí</a>
-                            </p>
-                        </div>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div>
-                                <img src="assets/facebook.svg" height="30px" width="30px" class="mx-1">
-                                <img src="assets/google.svg" height="28px" width="28px" class="mx-1">
-                                <img src="assets/twitter-x.svg" height="28px" width="28px" class="mx-1">
-                            </div>
-                            <div class="ml-auto">
-                                <button type="submit" class="btn btn-outline-success">Registrarse</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!--Perdida de contraseña-->
-    <div class="modal fade" id="contraseña" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-        aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5 d-flex text-center" id="staticBackdropLabel">Recuperación</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form onsubmit="return validarRecuperacion();">
-                        <div class="mb-3">
-                            <label for="inputcorreo3" class="form-label fs-6 fw-bold">Ingresa tu correo</label>
-                            <input type="email" id="inputcorreo3" class="form-control inputcorreo"
-                                placeholder="Ejemplo@email.com" required>
-                            <!-- Mensaje de error para el correo electrónico -->
-                            <div id="errorCorreoRecuperacion" class="invalid-feedback">Por favor ingresa un correo
-                                electrónico válido.</div>
-                        </div>
-                        <div class="form-check mb-3">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" required>
-                            <label class="form-check-label" for="flexCheckDefault">
-                                Acepto los términos y condiciones
-                            </label>
-                        </div>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <p class="mt-0">
-                                Si ya tienes cuenta <a data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                    id="cursor" class="fw-bold">Inicia sesión aquí</a>
-                            </p>
-                            <button type="submit" class="btn btn-outline-success mt-2">Enviar correo de
-                                recuperación</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!--Modal login/Register-->
     <!-- Header-->
-    <header class="">
+    <header>
         <!--CARRUSEL-->
         <a href="{% url 'Certificacion' %}">
             <div id="carouselExampleCaptions" class="carousel slide">
@@ -1185,13 +1032,13 @@
     <!-- Footer-->
     <footer class="py-5 bg-black">
         <div class="container">
-            <div class="container"> <a href="Contactanos.html" class="m-0 text-white text-center" id="cont">
+            <div class="container"> <a href="{% url 'Contactanos' %}" class="m-0 text-white text-center" id="cont">
                     <p>Contacto</p>
                 </a></div>
-            <div class="container"> <a href="SobreNosotros.html" class="m-0 text-white text-center" id="nos">
+            <div class="container"> <a href="{% url 'SobreNosotros' %}" class="m-0 text-white text-center" id="nos">
                     <p>Sobre Nosotros</p>
                 </a></div>
-            <div class="container"> <a href="#" class="m-0 text-white text-center" id="red">
+            <div class="container"> <a  class="m-0 text-white text-center" id="red">
                     <p>Redes Sociales</p>
                 </a></div>
             <section class="botones">
