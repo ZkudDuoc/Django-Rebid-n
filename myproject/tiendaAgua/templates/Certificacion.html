@@ -28,29 +28,43 @@
                     class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-                    <li class="nav-item"><a class="nav-link active" aria-current="page"
+                    <li class="nav-item"><a class="nav-link " aria-current="page"
                             href="{% url 'Inicio' %}">Inicio</a>
-                    </li>
-                    <li class="nav-item"><a class="nav-link" href="{% url 'Contactanos' %}" >Contacto</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{% url 'index' %}">Productos</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{% url 'SobreNosotros' %}">Sobre Nosotros</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{% url 'Contactanos' %}">Contactanos</a></li>  
+                            <li class="nav-item"><a class="nav-link active" href="{% url 'Certificacion' %}">Certificación</a></li>  
+                            <li class="nav-item"><a class="nav-link" href="#">Registrar</a></li> 
+                         </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false">Mas</a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="{% url 'index' %}">Todos los productos</a></li>
-                            <li>
+                           
                                 <hr class="dropdown-divider" />
                             </li>
+                           
                             <li><a class="dropdown-item" id="cursor" data-bs-toggle="modal"
-                                    data-bs-target="#staticBackdrop">Entrar</a></li>
-                            <li><a class="dropdown-item" id="cursor" data-bs-toggle="modal"
-                                    data-bs-target="#Register">Registrarse</a></li>
-                            <li><a class="dropdown-item" href="{% url 'SobreNosotros' %}">Sobre Nosotros</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="#">Cliente</a></li> 
+                                    <li class="nav-item"><a class="nav-link" href="#">Producto</a></li> 
+                                    <li class="nav-item"><a class="nav-link" href="#">Empleado</a></li> 
+                            
                         </ul>
                     </li>
                 </ul>
-                <form class="d-flex">
+                <form class="d-flex px-1">
+                    <button class="btn btn-outline-dark " type="submit">
+                        <a class="dropdown-item" id="cursor" data-bs-toggle="modal"
+                        <li class="nav-item"><a class="nav-link" href="Login.html">Entrar</a></li> 
+                           
+                        <i class=""></i>
+                        <span class="badge bg-dark text-white ms-1 rounded-pill"></span>
+                    </button>
+                
+                </form>
+                <form class="d-inline">
                     <button class="btn btn-outline-dark" type="submit">
-                        <i class="bi-cart-fill me-1"></i>
+                        <i class="bi-cart-fill me-2"></i>
                         Carro
                         <span class="badge bg-dark text-white ms-1 rounded-pill products-count">0</span>
                     </button>

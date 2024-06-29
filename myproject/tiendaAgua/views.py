@@ -12,14 +12,14 @@ def contactanos_view(request):
     return render(request, "Contactanos.html")
 def inicio_view(request):
     return render(request, "Inicio.html")
-
+def Registro_view(request):
+    return render(request, "Registro.html")    
 def sobrenosotros_view(request):
     return render(request, "SobreNosotros.html")
-
 def listar_view(request):
     productos = Producto.objects.all()
     context = {'productos' : productos}
-    return render(request,"Listar.html", {'productos' : productos})
+    return render(request,"Listar.html", {'productos' : productos})   
 
 def agregar_view(request):
     if request.method == 'POST':
