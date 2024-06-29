@@ -15,7 +15,8 @@ class Empleado(models.Model):
     apellido = models.CharField(max_length=50)
     email = models.EmailField(unique=True)
     contraseña = models.CharField(max_length=50)
-
+    cargo = models.CharField(max_length=100, default='Empleado')
+    
     def __str__(self):
         return f"{self.nombre} {self.apellido}"
 
@@ -27,4 +28,3 @@ class Producto(models.Model):
 
     def __str__(self):
         return self.nombre
-

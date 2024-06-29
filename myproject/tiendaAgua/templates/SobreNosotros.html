@@ -52,29 +52,28 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button"
                                 data-bs-toggle="dropdown" aria-expanded="false">Mantenedores</a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                
                                     <hr class="dropdown-divider" />
                                 </li>
                                
                                 <li><a class="dropdown-item" id="cursor" data-bs-toggle="modal"
-                                        <li class="nav-item"><a class="nav-link" href="#">Cliente</a></li> 
-                                        <li class="nav-item"><a class="nav-link" href="#">Producto</a></li> 
-                                        <li class="nav-item"><a class="nav-link" href="#">Empleado</a></li> 
+                                        <li class="nav-item"><a class="nav-link" href="{% url 'listar_clientes' %}">Cliente</a></li> 
+                                        <li class="nav-item"><a class="nav-link" href="{% url 'listado_producto' %}">Producto</a></li> 
+                                        <li class="nav-item"><a class="nav-link" href="{% url 'listar_empleados' %}">Empleado</a></li> 
                                 
                             </ul>
                         </li>
                     </ul>
                     <form class="d-flex px-1">
-                        <button class="btn btn-outline-dark " type="submit">
-                            <a class="dropdown-item" id="cursor" data-bs-toggle="modal"
-                            <li class="nav-item"><a class="nav-link" href="#">Entrar</a></li> 
-                               
-                            <i class=""></i>
-                            <span class="badge bg-dark text-white ms-1 rounded-pill"></span>
+                        <button type="button" class="btn btn-outline-dark">
+                            <a href="{% url 'Login' %}" class="nav-link text-dark">
+                                Entrar <sup><i class="bi bi-caret-down-fill"></i></sup>
+                                <span class="badge bg-dark text-white ms-1 rounded-pill"></span>
+                            </a>
                         </button>
-                    
                     </form>
+                    
                     <form class="d-inline">
                         <button class="btn btn-outline-dark" type="submit">
                             <i class="bi-cart-fill me-2"></i>
